@@ -16,7 +16,7 @@
 
 Файрвол - это не просто какое-то ПО у провайдера, это туннель во внешний мир, через который проходит вообще весь трафик.
 
-![Коммуникация между городами](/images/map.png)
+![Коммуникация между городами](https://github.com/KostikShutov/working-from-china/assets/22249844/2161da6b-8af2-4510-98af-93252c57c0fb)
 
 ## Vpn
 
@@ -32,17 +32,17 @@
 
 Короче shadowsocks – это наш пацан, с которым мы будем дружить. Все по классике, нам нужен клиент и сервер.
 
-![Shadowsocks](/images/shadowsocks.png)
+![Shadowsocks](https://github.com/KostikShutov/working-from-china/assets/22249844/b47eb299-fd23-4f15-bdcd-086781a6263a)
 
 ### Клиент
 
 Клиент для mac: <https://github.com/shadowsocks/ShadowsocksX-NG>
 
-![NG-1](/images/ng-1.png)
+![NG-1](https://github.com/KostikShutov/working-from-china/assets/22249844/dda925e6-4c3b-4a21-9d30-30c3653d3d9f)
 
 Клиенты для ios: <https://apps.apple.com/ru/app/potatso/id1239860606> / <https://apps.apple.com/ru/app/shadowrocket/id932747118>
 
-![Shadowrocket](/images/rocket.png)
+![Shadowrocket](https://github.com/KostikShutov/working-from-china/assets/22249844/5bcd34b5-4e5f-4939-b3fd-ceb3855efdeb)
 
 Shadowrocket на самом деле можно использовать и на mac, но ShadowsocksX-NG более гибкий в настройке, а гибкость нам нужна.
 
@@ -74,7 +74,7 @@ Shadowrocket на самом деле можно использовать и н�
 
 В ShadowsocksX-NG переходим в `Preferences`, далее `Advanced`. Тут проставляем `Local Socks5 Listen Address` = `127.0.0.1` и `Local Socks5 Listen Port` = `1086`. С этой софтинкой все.
 
-![NG-2](/images/ng-2.png)
+![NG-2](https://github.com/KostikShutov/working-from-china/assets/22249844/725498e2-5ea1-4287-9878-69be34fbae15)
 
 Переходим в конфиг openvpn. Меняем протокол на tcp (`proto tcp`). В самом конце дописываем `socks-proxy 127.0.0.1 1086`, но до ключей и сертификатов. Понятно откуда этот ip и порт? Мы их проставили выше.
 
