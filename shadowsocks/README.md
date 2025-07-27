@@ -20,18 +20,18 @@
     cd /tmp
     ```
 
-4. В своем браузере идем на офф. страницу Shadowsocks-rust: shadowsocks-rust и копируем адрес последнего релиза под нашу архитектуру (`shadowsocks-v1.22.0.x86_64-unknown-linux-gnu.tar.xz`).
+4. В своем браузере идем на офф. страницу Shadowsocks-rust: shadowsocks-rust и копируем адрес последнего релиза под нашу архитектуру (`shadowsocks-v1.23.5.x86_64-unknown-linux-gnu.tar.xz`).
 
     В терминале вставляем ссылку и скачиваем последную версию shadowsocks-rust:
 
     ```bash
-    wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.22.0/shadowsocks-v1.22.0.x86_64-unknown-linux-gnu.tar.xz
+    wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.23.5/shadowsocks-v1.23.5.x86_64-unknown-linux-gnu.tar.xz
     ```
 
 5. Разархивируем полученный архив:
 
     ```bash
-    tar -xf shadowsocks-v1.22.0.x86_64-unknown-linux-gnu.tar.xz
+    tar -xf shadowsocks-v1.23.5.x86_64-unknown-linux-gnu.tar.xz
     ```
 
 6. Копируем разархивированный бинарник в `/usr/local/bin`, чтобы все красиво работало:
