@@ -112,4 +112,53 @@ Mangle правила:
 /ip firewall mangle add action=mark-routing chain=output dst-address-list=JETBRAINS-CIDR new-routing-mark=to_vpn_mark passthrough=yes
 ```
 
+### Chatgpt:
+
+Скрипт:
+
+```
+/tool fetch url="https://raw.githubusercontent.com/KostikShutov/working-from-china/refs/heads/main/vless/mikrotik/chatgpt_cidr_ipv4.rsc" mode=https dst-path=chatgpt_cidr_ipv4.rsc
+/ip firewall address-list remove [find list=CHATGPT-CIDR]
+/import file-name=chatgpt_cidr_ipv4.rsc
+```
+
+Mangle правила:
+
+```
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=CHATGPT-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-routing chain=output dst-address-list=CHATGPT-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+```
+
+### Meta (Instagram, Facebook):
+
+Скрипт:
+
+```
+/tool fetch url="https://raw.githubusercontent.com/KostikShutov/working-from-china/refs/heads/main/vless/mikrotik/meta_cidr_ipv4.rsc" mode=https dst-path=meta_cidr_ipv4.rsc
+/ip firewall address-list remove [find list=META-CIDR]
+/import file-name=meta_cidr_ipv4.rsc
+```
+
+Mangle правила:
+
+```
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=META-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-routing chain=output dst-address-list=META-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+```
+
+### Twitter
+
+```
+/tool fetch url="https://raw.githubusercontent.com/KostikShutov/working-from-china/refs/heads/main/vless/mikrotik/twitter_cidr_ipv4.rsc" mode=https dst-path=twitter_cidr_ipv4.rsc
+/ip firewall address-list remove [find list=TWITTER-CIDR]
+/import file-name=twitter_cidr_ipv4.rsc
+```
+
+Mangle правила:
+
+```
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=TWITTER-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-routing chain=output dst-address-list=TWITTER-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+```
+
 Запускаем каждый скрипт и создаем mangle правила по каждому сервису.
