@@ -1,3 +1,4 @@
+# https://github.com/fernvenue/telegram-cidr-list/blob/master/CIDRv4.txt
 /ip firewall address-list
 add list=TELEGRAM-CIDR comment=TELEGRAM-CIDR address=91.108.56.0/22
 add list=TELEGRAM-CIDR comment=TELEGRAM-CIDR address=91.108.4.0/22

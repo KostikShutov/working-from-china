@@ -37,7 +37,7 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 Добавляем mangle правила (связываем адреса и маркер):
 
 ```
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=custom new-routing-mark=to_vpn_mark  passthrough=yes
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=custom new-routing-mark=to_vpn_mark passthrough=yes
 /ip firewall mangle add action=mark-routing chain=output dst-address-list=custom new-routing-mark=to_vpn_mark passthrough=yes
 ```
 
@@ -57,7 +57,7 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 Mangle правила:
 
 ```
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=youtube new-routing-mark=to_vpn_mark  passthrough=yes
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=youtube new-routing-mark=to_vpn_mark passthrough=yes
 /ip firewall mangle add action=mark-routing chain=output dst-address-list=youtube new-routing-mark=to_vpn_mark passthrough=yes
 ```
 
@@ -74,11 +74,11 @@ Mangle правила:
 Mangle правила:
 
 ```
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=WHATSAPP-CIDR new-routing-mark=to_vpn_mark  passthrough=yes
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=WHATSAPP-CIDR new-routing-mark=to_vpn_mark passthrough=yes
 /ip firewall mangle add action=mark-routing chain=output dst-address-list=WHATSAPP-CIDR new-routing-mark=to_vpn_mark passthrough=yes
 ```
 
-### Telegram ([оригинальный файл с адресами](https://github.com/fernvenue/telegram-cidr-list/blob/master/CIDRv4.txt)):
+### Telegram:
 
 Скрипт:
 
@@ -91,8 +91,25 @@ Mangle правила:
 Mangle правила:
 
 ```
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=TELEGRAM-CIDR new-routing-mark=to_vpn_mark  passthrough=yes
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=TELEGRAM-CIDR new-routing-mark=to_vpn_mark passthrough=yes
 /ip firewall mangle add action=mark-routing chain=output dst-address-list=TELEGRAM-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+```
+
+### Jetbrains:
+
+Скрипт:
+
+```
+/tool fetch url="https://raw.githubusercontent.com/KostikShutov/working-from-china/refs/heads/main/vless/mikrotik/jetbrains_cidr_ipv4.rsc" mode=https dst-path=jetbrains_cidr_ipv4.rsc
+/ip firewall address-list remove [find list=JETBRAINS-CIDR]
+/import file-name=jetbrains_cidr_ipv4.rsc
+```
+
+Mangle правила:
+
+```
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=JETBRAINS-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-routing chain=output dst-address-list=JETBRAINS-CIDR new-routing-mark=to_vpn_mark passthrough=yes
 ```
 
 Запускаем каждый скрипт и создаем mangle правила по каждому сервису.
