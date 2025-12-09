@@ -1,7 +1,8 @@
 import requests
+import ipaddress
 from datetime import datetime, timezone
 
-URL = "https://raw.githubusercontent.com/fernvenue/telegram-cidr-list/refs/heads/master/CIDRv4.txt"
+URL = "https://core.telegram.org/resources/cidr.txt"
 HEADER = "# Original file: " + URL + "\n/ip firewall address-list\n"
 OUTPUT_FILE = "vless/mikrotik/telegram_cidr_ipv4.rsc"
 
@@ -17,7 +18,13 @@ def main():
         raise ValueError("No cidrs found")
 
     for cidr in cidrs:
-        result += f"add list=TELEGRAM-CIDR comment=TELEGRAM-CIDR address={cidr}\n"
+        try:
+            net = ipaddress.ip_network(cidr.strip())
+
+            if isinstance(net, ipaddress.IPv4Network):
+                result += f"add list=TELEGRAM-CIDR comment=TELEGRAM-CIDR address={cidr}\n"
+        except ValueError:
+            pass
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(result)
