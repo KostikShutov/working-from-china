@@ -43,7 +43,11 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 
 ## 4. Настраиваем сервисы
 
-Скрипты для получения IPv4 адресов можно создать в System -> Scripts. В идеале для них нужен cron.
+Скрипты для получения IPv4 адресов можно создать в System -> Scripts. В идеале для них нужен scheduler (cron) с примерным содержимым:
+
+```
+/system/script run youtube
+```
 
 ### Youtube:
 
