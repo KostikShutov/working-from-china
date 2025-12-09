@@ -11,11 +11,12 @@ def main():
     resp.raise_for_status()
     lines = resp.text.splitlines()
     cidrs = [line.strip() for line in lines if line.strip()]
-    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    result = "# Generated at: " + generated_at + "\n" + HEADER
 
     if not cidrs:
         raise ValueError("No cidrs found")
+
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    result = "# Generated at: " + generated_at + "\n" + HEADER
 
     for cidr in cidrs:
         try:
