@@ -8,6 +8,14 @@ ORANGE='\033[0;33m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
+function installPackages() {
+	if ! "$@"; then
+		echo -e "${RED}Failed to install packages.${NC}"
+		echo "Please check your internet connection and package sources."
+		exit 1
+	fi
+}
+
 function isRoot() {
 	if [ "${EUID}" -ne 0 ]; then
 		echo "You need to run this script as root"
@@ -16,12 +24,16 @@ function isRoot() {
 }
 
 function checkVirt() {
-	if [ "$(systemd-detect-virt)" == "openvz" ]; then
+	if command -v virt-what &>/dev/null; then
+		VIRT=$(virt-what)
+	else
+		VIRT=$(systemd-detect-virt)
+	fi
+	if [[ ${VIRT} == "openvz" ]]; then
 		echo "OpenVZ is not supported"
 		exit 1
 	fi
-
-	if [ "$(systemd-detect-virt)" == "lxc" ]; then
+	if [[ ${VIRT} == "lxc" ]]; then
 		echo "LXC is not supported (yet)."
 		echo "WireGuard can technically run in an LXC container,"
 		echo "but the kernel module has to be installed on the host,"
@@ -61,6 +73,13 @@ function checkOS() {
 		OS=oracle
 	elif [[ -e /etc/arch-release ]]; then
 		OS=arch
+	elif [[ -e /etc/alpine-release ]]; then
+		OS=alpine
+		if ! command -v virt-what &>/dev/null; then
+			if ! (apk update && apk add virt-what); then
+				echo -e "${RED}Failed to install virt-what. Continuing without virtualization check.${NC}"
+			fi
+		fi
 	else
 		echo "Looks like you aren't running this installer on a Debian, Ubuntu, Fedora, CentOS, AlmaLinux, Oracle or Arch Linux system"
 		exit 1
@@ -97,8 +116,8 @@ function getHomeDirForClient() {
 
 function initialCheck() {
 	isRoot
-	checkVirt
 	checkOS
+	checkVirt
 }
 
 function installQuestions() {
@@ -118,7 +137,7 @@ function installQuestions() {
 	read -rp "IPv4 or IPv6 public address: " -e -i "${SERVER_PUB_IP}" SERVER_PUB_IP
 
 	# Detect public interface and pre-fill for the user
-	SERVER_NIC="$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)"
+	SERVER_NIC="$(ip -4 route ls | grep default | awk '/dev/ {for (i=1; i<=NF; i++) if ($i == "dev") print $(i+1)}' | head -1)"
 	until [[ ${SERVER_PUB_NIC} =~ ^[a-zA-Z0-9_]+$ ]]; do
 		read -rp "Public interface: " -e -i "${SERVER_NIC}" SERVER_PUB_NIC
 	done
@@ -141,7 +160,7 @@ function installQuestions() {
 		read -rp "Server WireGuard port [1-65535]: " -e -i "${RANDOM_PORT}" SERVER_PORT
 	done
 
-	# Adguard DNS by default
+	# Cloudflare DNS by default
 	until [[ ${CLIENT_DNS_1} =~ ^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ ]]; do
 		read -rp "First DNS resolver to use for the clients: " -e -i 1.1.1.1 CLIENT_DNS_1
 	done
@@ -173,37 +192,47 @@ function installWireGuard() {
 	# Install WireGuard tools and module
 	if [[ ${OS} == 'ubuntu' ]] || [[ ${OS} == 'debian' && ${VERSION_ID} -gt 10 ]]; then
 		apt-get update
-		apt-get install -y wireguard iptables resolvconf qrencode
+		installPackages apt-get install -y wireguard iptables resolvconf qrencode
 	elif [[ ${OS} == 'debian' ]]; then
 		if ! grep -rqs "^deb .* buster-backports" /etc/apt/; then
 			echo "deb http://deb.debian.org/debian buster-backports main" >/etc/apt/sources.list.d/backports.list
 			apt-get update
 		fi
-		apt update
-		apt-get install -y iptables resolvconf qrencode
-		apt-get install -y -t buster-backports wireguard
+		apt-get update
+		installPackages apt-get install -y iptables resolvconf qrencode
+		installPackages apt-get install -y -t buster-backports wireguard
 	elif [[ ${OS} == 'fedora' ]]; then
 		if [[ ${VERSION_ID} -lt 32 ]]; then
-			dnf install -y dnf-plugins-core
+			installPackages dnf install -y dnf-plugins-core
 			dnf copr enable -y jdoss/wireguard
-			dnf install -y wireguard-dkms
+			installPackages dnf install -y wireguard-dkms
 		fi
-		dnf install -y wireguard-tools iptables qrencode
+		installPackages dnf install -y wireguard-tools iptables qrencode
 	elif [[ ${OS} == 'centos' ]] || [[ ${OS} == 'almalinux' ]] || [[ ${OS} == 'rocky' ]]; then
 		if [[ ${VERSION_ID} == 8* ]]; then
-			yum install -y epel-release elrepo-release
-			yum install -y kmod-wireguard
-			yum install -y qrencode # not available on release 9
+			installPackages yum install -y epel-release elrepo-release
+			installPackages yum install -y kmod-wireguard
+			yum install -y qrencode || true # not available on release 9
 		fi
-		yum install -y wireguard-tools iptables
+		installPackages yum install -y wireguard-tools iptables
 	elif [[ ${OS} == 'oracle' ]]; then
-		dnf install -y oraclelinux-developer-release-el8
+		installPackages dnf install -y oraclelinux-developer-release-el8
 		dnf config-manager --disable -y ol8_developer
 		dnf config-manager --enable -y ol8_developer_UEKR6
 		dnf config-manager --save -y --setopt=ol8_developer_UEKR6.includepkgs='wireguard-tools*'
-		dnf install -y wireguard-tools qrencode iptables
+		installPackages dnf install -y wireguard-tools qrencode iptables
 	elif [[ ${OS} == 'arch' ]]; then
-		pacman -S --needed --noconfirm wireguard-tools qrencode
+		installPackages pacman -S --needed --noconfirm wireguard-tools qrencode
+	elif [[ ${OS} == 'alpine' ]]; then
+		apk update
+		installPackages apk add wireguard-tools iptables libqrencode-tools
+	fi
+
+	# Verify WireGuard installation
+	if ! command -v wg &>/dev/null; then
+		echo -e "${RED}WireGuard installation failed. The 'wg' command was not found.${NC}"
+		echo "Please check the installation output above for errors."
+		exit 1
 	fi
 
 	# Make sure the directory exists (this does not seem the be the case on fedora)
@@ -236,8 +265,8 @@ PrivateKey = ${SERVER_PRIV_KEY}" >"/etc/wireguard/${SERVER_WG_NIC}.conf"
 	if pgrep firewalld; then
 		FIREWALLD_IPV4_ADDRESS=$(echo "${SERVER_WG_IPV4}" | cut -d"." -f1-3)".0"
 		FIREWALLD_IPV6_ADDRESS=$(echo "${SERVER_WG_IPV6}" | sed 's/:[^:]*$/:0/')
-		echo "PostUp = firewall-cmd --add-port ${SERVER_PORT}/udp && firewall-cmd --add-rich-rule='rule family=ipv4 source address=${FIREWALLD_IPV4_ADDRESS}/24 masquerade' && firewall-cmd --add-rich-rule='rule family=ipv6 source address=${FIREWALLD_IPV6_ADDRESS}/24 masquerade'
-PostDown = firewall-cmd --remove-port ${SERVER_PORT}/udp && firewall-cmd --remove-rich-rule='rule family=ipv4 source address=${FIREWALLD_IPV4_ADDRESS}/24 masquerade' && firewall-cmd --remove-rich-rule='rule family=ipv6 source address=${FIREWALLD_IPV6_ADDRESS}/24 masquerade'" >>"/etc/wireguard/${SERVER_WG_NIC}.conf"
+		echo "PostUp = firewall-cmd --zone=public --add-interface=${SERVER_WG_NIC} && firewall-cmd --add-port ${SERVER_PORT}/udp && firewall-cmd --add-rich-rule='rule family=ipv4 source address=${FIREWALLD_IPV4_ADDRESS}/24 masquerade' && firewall-cmd --add-rich-rule='rule family=ipv6 source address=${FIREWALLD_IPV6_ADDRESS}/24 masquerade'
+PostDown = firewall-cmd --zone=public --add-interface=${SERVER_WG_NIC} && firewall-cmd --remove-port ${SERVER_PORT}/udp && firewall-cmd --remove-rich-rule='rule family=ipv4 source address=${FIREWALLD_IPV4_ADDRESS}/24 masquerade' && firewall-cmd --remove-rich-rule='rule family=ipv6 source address=${FIREWALLD_IPV6_ADDRESS}/24 masquerade'" >>"/etc/wireguard/${SERVER_WG_NIC}.conf"
 	else
 		echo "PostUp = iptables -I INPUT -p udp --dport ${SERVER_PORT} -j ACCEPT
 PostUp = iptables -I FORWARD -i ${SERVER_PUB_NIC} -o ${SERVER_WG_NIC} -j ACCEPT
@@ -257,26 +286,46 @@ PostDown = ip6tables -t nat -D POSTROUTING -o ${SERVER_PUB_NIC} -j MASQUERADE" >
 	echo "net.ipv4.ip_forward = 1
 net.ipv6.conf.all.forwarding = 1" >/etc/sysctl.d/wg.conf
 
-	sysctl --system
+	if [[ ${OS} == 'alpine' ]]; then
+		sysctl -p /etc/sysctl.d/wg.conf
+		rc-update add sysctl
+		ln -s /etc/init.d/wg-quick "/etc/init.d/wg-quick.${SERVER_WG_NIC}"
+		rc-service "wg-quick.${SERVER_WG_NIC}" start
+		rc-update add "wg-quick.${SERVER_WG_NIC}"
+	else
+		sysctl --system
 
-	systemctl start "wg-quick@${SERVER_WG_NIC}"
-	systemctl enable "wg-quick@${SERVER_WG_NIC}"
+		systemctl start "wg-quick@${SERVER_WG_NIC}"
+		systemctl enable "wg-quick@${SERVER_WG_NIC}"
+	fi
 
 	newClient
 	echo -e "${GREEN}If you want to add more clients, you simply need to run this script another time!${NC}"
 
 	# Check if WireGuard is running
-	systemctl is-active --quiet "wg-quick@${SERVER_WG_NIC}"
+	if [[ ${OS} == 'alpine' ]]; then
+		rc-service --quiet "wg-quick.${SERVER_WG_NIC}" status
+	else
+		systemctl is-active --quiet "wg-quick@${SERVER_WG_NIC}"
+	fi
 	WG_RUNNING=$?
 
 	# WireGuard might not work if we updated the kernel. Tell the user to reboot
 	if [[ ${WG_RUNNING} -ne 0 ]]; then
 		echo -e "\n${RED}WARNING: WireGuard does not seem to be running.${NC}"
-		echo -e "${ORANGE}You can check if WireGuard is running with: systemctl status wg-quick@${SERVER_WG_NIC}${NC}"
+		if [[ ${OS} == 'alpine' ]]; then
+			echo -e "${ORANGE}You can check if WireGuard is running with: rc-service wg-quick.${SERVER_WG_NIC} status${NC}"
+		else
+			echo -e "${ORANGE}You can check if WireGuard is running with: systemctl status wg-quick@${SERVER_WG_NIC}${NC}"
+		fi
 		echo -e "${ORANGE}If you get something like \"Cannot find device ${SERVER_WG_NIC}\", please reboot!${NC}"
 	else # WireGuard is running
 		echo -e "\n${GREEN}WireGuard is running.${NC}"
-		echo -e "${GREEN}You can check the status of WireGuard with: systemctl status wg-quick@${SERVER_WG_NIC}\n\n${NC}"
+		if [[ ${OS} == 'alpine' ]]; then
+			echo -e "${GREEN}You can check the status of WireGuard with: rc-service wg-quick.${SERVER_WG_NIC} status\n\n${NC}"
+		else
+			echo -e "${GREEN}You can check the status of WireGuard with: systemctl status wg-quick@${SERVER_WG_NIC}\n\n${NC}"
+		fi
 		echo -e "${ORANGE}If you don't have internet connectivity from your client, try to reboot the server.${NC}"
 	fi
 }
@@ -358,6 +407,11 @@ PrivateKey = ${CLIENT_PRIV_KEY}
 Address = ${CLIENT_WG_IPV4}/32,${CLIENT_WG_IPV6}/128
 DNS = ${CLIENT_DNS_1},${CLIENT_DNS_2}
 
+# Uncomment the next line to set a custom MTU
+# This might impact performance, so use it only if you know what you are doing
+# See https://github.com/nitred/nr-wg-mtu-finder to find your optimal MTU
+# MTU = 1420
+
 [Peer]
 PublicKey = ${SERVER_PUB_KEY}
 PresharedKey = ${CLIENT_PRE_SHARED_KEY}
@@ -436,12 +490,17 @@ function uninstallWg() {
 	if [[ $REMOVE == 'y' ]]; then
 		checkOS
 
-		systemctl stop "wg-quick@${SERVER_WG_NIC}"
-		systemctl disable "wg-quick@${SERVER_WG_NIC}"
+		if [[ ${OS} == 'alpine' ]]; then
+			rc-service "wg-quick.${SERVER_WG_NIC}" stop
+			rc-update del "wg-quick.${SERVER_WG_NIC}"
+			unlink "/etc/init.d/wg-quick.${SERVER_WG_NIC}"
+			rc-update del sysctl
+		else
+			systemctl stop "wg-quick@${SERVER_WG_NIC}"
+			systemctl disable "wg-quick@${SERVER_WG_NIC}"
+		fi
 
-		if [[ ${OS} == 'ubuntu' ]]; then
-			apt-get remove -y wireguard wireguard-tools qrencode
-		elif [[ ${OS} == 'debian' ]]; then
+		if [[ ${OS} == 'ubuntu' ]] || [[ ${OS} == 'debian' ]]; then
 			apt-get remove -y wireguard wireguard-tools qrencode
 		elif [[ ${OS} == 'fedora' ]]; then
 			dnf remove -y --noautoremove wireguard-tools qrencode
@@ -458,16 +517,24 @@ function uninstallWg() {
 			yum remove --noautoremove wireguard-tools qrencode
 		elif [[ ${OS} == 'arch' ]]; then
 			pacman -Rs --noconfirm wireguard-tools qrencode
+		elif [[ ${OS} == 'alpine' ]]; then
+			(cd qrencode-4.1.1 || exit && make uninstall)
+			rm -rf qrencode-* || exit
+			apk del wireguard-tools libqrencode libqrencode-tools
 		fi
 
 		rm -rf /etc/wireguard
 		rm -f /etc/sysctl.d/wg.conf
 
-		# Reload sysctl
-		sysctl --system
+		if [[ ${OS} == 'alpine' ]]; then
+			rc-service --quiet "wg-quick.${SERVER_WG_NIC}" status &>/dev/null
+		else
+			# Reload sysctl
+			sysctl --system
 
-		# Check if WireGuard is running
-		systemctl is-active --quiet "wg-quick@${SERVER_WG_NIC}"
+			# Check if WireGuard is running
+			systemctl is-active --quiet "wg-quick@${SERVER_WG_NIC}"
+		fi
 		WG_RUNNING=$?
 
 		if [[ ${WG_RUNNING} -eq 0 ]]; then
