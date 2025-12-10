@@ -6,17 +6,16 @@ URL = "https://core.telegram.org/resources/cidr.txt"
 HEADER = "# Original file: " + URL + "\n/ip firewall address-list\n"
 OUTPUT_FILE = "vless/mikrotik/telegram_cidr_ipv4.rsc"
 
+
 def main():
     resp = requests.get(URL)
     resp.raise_for_status()
-    lines = resp.text.splitlines()
-    cidrs = [line.strip() for line in lines if line.strip()]
+    cidrs = resp.text.splitlines()
 
     if not cidrs:
         raise ValueError("No cidrs found")
 
-    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    result = "# Generated at: " + generated_at + "\n" + HEADER
+    result = ""
 
     for cidr in cidrs:
         try:
@@ -27,8 +26,15 @@ def main():
         except ValueError:
             pass
 
+    if not result:
+        raise ValueError("No cidrs generated")
+
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    result = "# Generated at: " + generated_at + "\n" + HEADER + result
+
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(result)
+
 
 if __name__ == "__main__":
     main()

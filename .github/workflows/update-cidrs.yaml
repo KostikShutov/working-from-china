@@ -35,3 +35,36 @@ jobs:
           git add vless/mikrotik/telegram_cidr_ipv4.rsc
           git commit -m "[$(date -u '+%Y-%m-%d %H:%M:%S UTC')] Automatically updated telegram cidrs"
           git push
+
+  update-other-cidrs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run parser script
+        run: |
+          python vless/mikrotik/scripts/other.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add vless/mikrotik/chatgpt_cidr_ipv4.rsc
+          git add vless/mikrotik/meta_cidr_ipv4.rsc
+          git add vless/mikrotik/twitter_cidr_ipv4.rsc
+          git add vless/mikrotik/medium_com_cidr_ipv4.rsc
+          git commit -m "[$(date -u '+%Y-%m-%d %H:%M:%S UTC')] Automatically updated other cidrs"
+          git push
