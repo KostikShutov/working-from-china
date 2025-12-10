@@ -10,9 +10,13 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 
 `ram-high` -> `memory-high`
 
+Еще можно настроить DOH: https://github.com/wilmeralmazan/google-doh-mikrotik/blob/main/dns-doh.rsc / https://help.mikrotik.com/docs/pages/viewpage.action?pageId=83099652.
+
 ## 2. Отключаем `defconf: fasttrack` (`chain=forward`) в Ip -> Firewall -> Filter Rules.
 
 Есть мнение, что с включенным правилом медленно работает vless. Поэтому отключаем.
+
+Также можно отключить IPv6.
 
 ## 3. Настраиваем туннелирование определенных адресов:
 
@@ -37,8 +41,8 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 Добавляем mangle правила (связываем адреса и маркер):
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=custom new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=custom new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=custom new-connection-mark=to_vpn_conn_custom passthrough=yes in-interface-list=LAN comment=custom
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=custom
 ```
 
 ## 4. Настраиваем сервисы
@@ -61,8 +65,8 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=youtube new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=youtube new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=youtube new-connection-mark=to_vpn_conn_youtube passthrough=yes in-interface-list=LAN comment=youtube
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_youtube new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=youtube
 ```
 
 ### Whatsapp:
@@ -78,8 +82,8 @@ Mangle правила:
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=WHATSAPP-CIDR new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=WHATSAPP-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=WHATSAPP-CIDR new-connection-mark=to_vpn_conn_custom passthrough=yes in-interface-list=LAN comment=WHATSAPP-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=WHATSAPP-CIDR
 ```
 
 ### Telegram:
@@ -95,8 +99,8 @@ Mangle правила:
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=TELEGRAM-CIDR new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=TELEGRAM-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=TELEGRAM-CIDR new-connection-mark=to_vpn_conn_telegram passthrough=yes in-interface-list=LAN comment=TELEGRAM-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_telegram new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=TELEGRAM-CIDR
 ```
 
 ### Jetbrains:
@@ -112,8 +116,8 @@ Mangle правила:
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=JETBRAINS-CIDR new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=JETBRAINS-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=JETBRAINS-CIDR new-connection-mark=to_vpn_conn_jetbrains passthrough=yes in-interface-list=LAN comment=JETBRAINS-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_jetbrains new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=JETBRAINS-CIDR
 ```
 
 ### Chatgpt:
@@ -129,8 +133,8 @@ Mangle правила:
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=CHATGPT-CIDR new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=CHATGPT-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=CHATGPT-CIDR new-connection-mark=to_vpn_conn_chatgpt passthrough=yes in-interface-list=LAN comment=CHATGPT-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_chatgpt new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=CHATGPT-CIDR
 ```
 
 ### Meta (Instagram, Facebook):
@@ -146,8 +150,8 @@ Mangle правила:
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=META-CIDR new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=META-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=META-CIDR new-connection-mark=to_vpn_conn_meta passthrough=yes in-interface-list=LAN comment=META-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_meta new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=META-CIDR
 ```
 
 ### Twitter
@@ -161,8 +165,8 @@ Mangle правила:
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=TWITTER-CIDR new-routing-mark=to_vpn_mark passthrough=yes
-/ip firewall mangle add action=mark-routing chain=output dst-address-list=TWITTER-CIDR new-routing-mark=to_vpn_mark passthrough=yes
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=TWITTER-CIDR new-connection-mark=to_vpn_conn_twitter passthrough=yes in-interface-list=LAN comment=TWITTER-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_twitter new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=TWITTER-CIDR
 ```
 
 Запускаем каждый скрипт и создаем mangle правила по каждому сервису.
