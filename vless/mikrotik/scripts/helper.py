@@ -22,7 +22,7 @@ def is_ipv4(ip: str) -> bool:
 
 
 def strip(line: str) -> str:
-    return line.strip(' ,#/')
+    return line.strip(' ,#/_')
 
 
 def generate_file(lines: list[str], listName: str, url: str, outputFile: str) -> None:
