@@ -25,7 +25,8 @@ def strip(line: str) -> str:
     return line.strip(' ,#/_')
 
 
-def generate_file(lines: list[str], list_name: str, url: str, output_file: str) -> None:
+def generate_file(lines: list[str], list_name: str, urls: list[str], output_file: str) -> None:
+    lines = list(dict.fromkeys(lines))
     cidrs = ""
 
     for line in lines:
@@ -38,7 +39,12 @@ def generate_file(lines: list[str], list_name: str, url: str, output_file: str) 
         raise ValueError("No cidrs generated")
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    result = f"# Generated at: {now}\n# Original file: {url}\n/ip firewall address-list\n" + cidrs
+    result = f"# Generated at: {now}\n"
+
+    for url in urls:
+        result += f"# Original file: {url}\n"
+
+    result += "/ip firewall address-list\n" + cidrs
 
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(result)

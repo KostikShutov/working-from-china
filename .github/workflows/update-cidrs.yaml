@@ -26,8 +26,7 @@ jobs:
 
       - name: Run parser script
         run: |
-          python vless/mikrotik/scripts/update-telegram.py
-          python vless/mikrotik/scripts/update-others.py
+          python vless/mikrotik/scripts/update-cidrs.py
 
       - name: Commit and push changes
         run: |
@@ -38,5 +37,6 @@ jobs:
           git add vless/mikrotik/meta_cidr_ipv4.rsc
           git add vless/mikrotik/telegram_cidr_ipv4.rsc
           git add vless/mikrotik/twitter_cidr_ipv4.rsc
+          git add vless/mikrotik/youtube_cidr_ipv4.rsc
           git commit -m "[$(date -u '+%Y-%m-%d %H:%M:%S UTC')] Automatically updated cidrs"
           git push

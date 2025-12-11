@@ -58,32 +58,16 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 Скрипт:
 
 ```routeros
-/tool fetch url="https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/routerosv4.rsc" mode=https dst-path=routerosv4.rsc
-/import file-name=routerosv4.rsc
+/tool fetch url="https://raw.githubusercontent.com/KostikShutov/working-from-china/refs/heads/main/vless/mikrotik/youtube_cidr_ipv4.rsc" mode=https dst-path=youtube_cidr_ipv4.rsc
+/ip firewall address-list remove [find list=YOUTUBE-CIDR]
+/import file-name=youtube_cidr_ipv4.rsc
 ```
 
 Mangle правила:
 
 ```routeros
-/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=youtube new-connection-mark=to_vpn_conn_youtube passthrough=yes in-interface-list=LAN comment=youtube
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_youtube new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=youtube
-```
-
-### Whatsapp:
-
-Скрипт:
-
-```routeros
-/tool fetch url="https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.rsc" mode=https dst-path=whatsapp_cidr_ipv4.rsc
-/ip firewall address-list remove [find list=WHATSAPP-CIDR]
-/import file-name=whatsapp_cidr_ipv4.rsc
-```
-
-Mangle правила:
-
-```routeros
-/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=WHATSAPP-CIDR new-connection-mark=to_vpn_conn_custom passthrough=yes in-interface-list=LAN comment=WHATSAPP-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=WHATSAPP-CIDR
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=YOUTUBE-CIDR new-connection-mark=to_vpn_conn_youtube passthrough=yes in-interface-list=LAN comment=YOUTUBE-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_youtube new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=YOUTUBE-CIDR
 ```
 
 ### Telegram:
@@ -137,7 +121,7 @@ Mangle правила:
 /ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_chatgpt new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=CHATGPT-CIDR
 ```
 
-### Meta (Instagram, Facebook):
+### Meta (Instagram, Facebook, WhatsApp):
 
 Скрипт:
 
