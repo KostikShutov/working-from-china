@@ -9,7 +9,7 @@ def get_lines(url: str) -> list[str]:
     lines = response.text.splitlines()
 
     if not lines:
-        raise ValueError("No lines found")
+        raise ValueError(f"No lines received from url {url}")
 
     return lines
 
@@ -25,20 +25,20 @@ def strip(line: str) -> str:
     return line.strip(' ,#/_')
 
 
-def generate_file(lines: list[str], listName: str, url: str, outputFile: str) -> None:
-    result = ""
+def generate_file(lines: list[str], list_name: str, url: str, output_file: str) -> None:
+    cidrs = ""
 
     for line in lines:
         line = strip(line)
 
         if is_ipv4(line):
-            result += f"add list={listName}-CIDR comment={listName}-CIDR address={line}\n"
+            cidrs += f"add list={list_name}-CIDR comment={list_name}-CIDR address={line}\n"
 
-    if not result:
+    if not cidrs:
         raise ValueError("No cidrs generated")
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    result = f"# Generated at: {now}\n# Original file: {url}\n/ip firewall address-list\n" + result
+    result = f"# Generated at: {now}\n# Original file: {url}\n/ip firewall address-list\n" + cidrs
 
-    with open(outputFile, "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         f.write(result)

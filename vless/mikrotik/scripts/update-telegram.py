@@ -8,9 +8,9 @@ OUTPUT_FILE = "vless/mikrotik/telegram_cidr_ipv4.rsc"
 def main():
     generate_file(
         lines=get_lines(URL),
-        listName="TELEGRAM",
+        list_name="TELEGRAM",
         url=URL,
-        outputFile=OUTPUT_FILE,
+        output_file=OUTPUT_FILE,
     )
 
 

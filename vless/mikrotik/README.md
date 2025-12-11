@@ -42,7 +42,7 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=custom new-connection-mark=to_vpn_conn_custom passthrough=yes in-interface-list=LAN comment=custom
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=custom
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=custom
 ```
 
 ## 4. Настраиваем сервисы
@@ -66,7 +66,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=youtube new-connection-mark=to_vpn_conn_youtube passthrough=yes in-interface-list=LAN comment=youtube
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_youtube new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=youtube
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_youtube new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=youtube
 ```
 
 ### Whatsapp:
@@ -83,7 +83,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=WHATSAPP-CIDR new-connection-mark=to_vpn_conn_custom passthrough=yes in-interface-list=LAN comment=WHATSAPP-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=WHATSAPP-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_custom new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=WHATSAPP-CIDR
 ```
 
 ### Telegram:
@@ -100,7 +100,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=TELEGRAM-CIDR new-connection-mark=to_vpn_conn_telegram passthrough=yes in-interface-list=LAN comment=TELEGRAM-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_telegram new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=TELEGRAM-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_telegram new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=TELEGRAM-CIDR
 ```
 
 ### Jetbrains:
@@ -117,7 +117,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=JETBRAINS-CIDR new-connection-mark=to_vpn_conn_jetbrains passthrough=yes in-interface-list=LAN comment=JETBRAINS-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_jetbrains new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=JETBRAINS-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_jetbrains new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=JETBRAINS-CIDR
 ```
 
 ### Chatgpt:
@@ -134,7 +134,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=CHATGPT-CIDR new-connection-mark=to_vpn_conn_chatgpt passthrough=yes in-interface-list=LAN comment=CHATGPT-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_chatgpt new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=CHATGPT-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_chatgpt new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=CHATGPT-CIDR
 ```
 
 ### Meta (Instagram, Facebook):
@@ -151,7 +151,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=META-CIDR new-connection-mark=to_vpn_conn_meta passthrough=yes in-interface-list=LAN comment=META-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_meta new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=META-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_meta new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=META-CIDR
 ```
 
 ### Twitter
@@ -166,7 +166,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=TWITTER-CIDR new-connection-mark=to_vpn_conn_twitter passthrough=yes in-interface-list=LAN comment=TWITTER-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_twitter new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=TWITTER-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_twitter new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=TWITTER-CIDR
 ```
 
 ### Medium
@@ -181,7 +181,7 @@ Mangle правила:
 
 ```routeros
 /ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=MEDIUM_COM-CIDR new-connection-mark=to_vpn_conn_medium_com passthrough=yes in-interface-list=LAN comment=MEDIUM_COM-CIDR
-/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_medium_com new-routing-mark=to_vpn_mark passthrough=no in-interface-list=LAN comment=MEDIUM_COM-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_medium_com new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=MEDIUM_COM-CIDR
 ```
 
 Запускаем каждый скрипт и создаем mangle правила по каждому сервису.
