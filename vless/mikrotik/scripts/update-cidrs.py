@@ -3,6 +3,7 @@ from helper import get_lines, is_ipv4, strip, generate_file
 
 TELEGRAM_URL = "https://core.telegram.org/resources/cidr.txt"
 WHATSAPP_URL = "https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt"
+META_URL = "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst"
 YOUTUBE_URL = "https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/cidr4.txt"
 OTHERS_URL = "https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt"
 JETBRAINS_URL = "https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt"
@@ -62,6 +63,11 @@ def merge_meta_files(meta: list[str]) -> list[str]:
     for line in lines:
         meta.append(strip(line))
 
+    lines = get_lines(META_URL)
+
+    for line in lines:
+        meta.append(strip(line))
+
     return meta
 
 
@@ -88,7 +94,7 @@ def main():
         lines = services[white_service]
 
         if white_service == META:
-            urls = [OTHERS_URL, WHATSAPP_URL]
+            urls = [OTHERS_URL, WHATSAPP_URL, META_URL]
         elif white_service == YOUTUBE:
             urls = [OTHERS_URL, YOUTUBE_URL]
         else:

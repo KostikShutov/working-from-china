@@ -1,6 +1,7 @@
-# Generated at: 2025-12-12 04:29:41 UTC
+# Generated at: 2025-12-12 07:43:15 UTC
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
 # Original file: https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt
+# Original file: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst
 /ip firewall address-list
 add list=META-CIDR comment=META-CIDR address=157.240.253.174
 add list=META-CIDR comment=META-CIDR address=157.240.253.172
@@ -283,3 +284,24 @@ add list=META-CIDR comment=META-CIDR address=185.60.217.54/32
 add list=META-CIDR comment=META-CIDR address=185.60.218.53/32
 add list=META-CIDR comment=META-CIDR address=185.60.218.54/32
 add list=META-CIDR comment=META-CIDR address=185.60.219.60/31
+add list=META-CIDR comment=META-CIDR address=31.13.24.0/21
+add list=META-CIDR comment=META-CIDR address=31.13.64.0/18
+add list=META-CIDR comment=META-CIDR address=45.64.40.0/22
+add list=META-CIDR comment=META-CIDR address=57.141.0.0/20
+add list=META-CIDR comment=META-CIDR address=57.144.0.0/14
+add list=META-CIDR comment=META-CIDR address=66.220.144.0/20
+add list=META-CIDR comment=META-CIDR address=69.63.176.0/20
+add list=META-CIDR comment=META-CIDR address=69.171.224.0/19
+add list=META-CIDR comment=META-CIDR address=74.119.76.0/22
+add list=META-CIDR comment=META-CIDR address=102.132.96.0/20
+add list=META-CIDR comment=META-CIDR address=103.4.96.0/22
+add list=META-CIDR comment=META-CIDR address=129.134.0.0/17
+add list=META-CIDR comment=META-CIDR address=157.240.0.0/17
+add list=META-CIDR comment=META-CIDR address=157.240.192.0/18
+add list=META-CIDR comment=META-CIDR address=163.70.128.0/17
+add list=META-CIDR comment=META-CIDR address=163.77.132.0/23
+add list=META-CIDR comment=META-CIDR address=163.77.136.0/23
+add list=META-CIDR comment=META-CIDR address=173.252.64.0/18
+add list=META-CIDR comment=META-CIDR address=179.60.192.0/22
+add list=META-CIDR comment=META-CIDR address=185.60.216.0/22
+add list=META-CIDR comment=META-CIDR address=185.89.216.0/22
