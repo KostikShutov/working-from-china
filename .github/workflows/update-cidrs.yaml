@@ -38,5 +38,6 @@ jobs:
           git add vless/mikrotik/telegram_cidr_ipv4.rsc
           git add vless/mikrotik/twitter_cidr_ipv4.rsc
           git add vless/mikrotik/youtube_cidr_ipv4.rsc
+          git add vless/mikrotik/jetbrains_cidr_ipv4.rsc
           git commit -m "[$(date -u '+%Y-%m-%d %H:%M:%S UTC')] Automatically updated cidrs"
           git push

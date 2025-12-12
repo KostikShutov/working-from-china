@@ -5,6 +5,7 @@ TELEGRAM_URL = "https://core.telegram.org/resources/cidr.txt"
 WHATSAPP_URL = "https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt"
 YOUTUBE_URL = "https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/cidr4.txt"
 OTHERS_URL = "https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt"
+JETBRAINS_URL = "https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt"
 OUTPUT_DIR = "vless/mikrotik/"
 CHATGPT = "chatgpt"
 META = "meta"
@@ -105,6 +106,13 @@ def main():
         list_name="TELEGRAM",
         urls=[TELEGRAM_URL],
         output_file=OUTPUT_DIR + "telegram_cidr_ipv4.rsc",
+    )
+
+    generate_file(
+        lines=get_lines(JETBRAINS_URL),
+        list_name="JETBRAINS",
+        urls=[JETBRAINS_URL],
+        output_file=OUTPUT_DIR + "jetbrains_cidr_ipv4.rsc",
     )
 
 
