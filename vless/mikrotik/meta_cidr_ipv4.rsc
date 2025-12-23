@@ -1,4 +1,4 @@
-# Generated at: 2025-12-22 02:03:05 UTC
+# Generated at: 2025-12-23 01:58:22 UTC
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
 # Original file: https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt
 # Original file: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst
@@ -330,6 +330,7 @@ add list=META-CIDR comment=META-CIDR address=157.240.131.0/24
 add list=META-CIDR comment=META-CIDR address=157.240.132.0/24
 add list=META-CIDR comment=META-CIDR address=157.240.134.0/24
 add list=META-CIDR comment=META-CIDR address=157.240.136.0/23
+add list=META-CIDR comment=META-CIDR address=157.240.139.0/24
 add list=META-CIDR comment=META-CIDR address=157.240.156.0/22
 add list=META-CIDR comment=META-CIDR address=157.240.169.0/24
 add list=META-CIDR comment=META-CIDR address=157.240.175.0/24
@@ -341,7 +342,7 @@ add list=META-CIDR comment=META-CIDR address=157.240.184.0/21
 add list=META-CIDR comment=META-CIDR address=157.240.192.0/18
 add list=META-CIDR comment=META-CIDR address=163.70.128.0/17
 add list=META-CIDR comment=META-CIDR address=163.77.132.0/23
-add list=META-CIDR comment=META-CIDR address=163.77.137.0/24
+add list=META-CIDR comment=META-CIDR address=163.77.136.0/23
 add list=META-CIDR comment=META-CIDR address=163.114.128.0/20
 add list=META-CIDR comment=META-CIDR address=173.252.64.0/18
 add list=META-CIDR comment=META-CIDR address=179.60.192.0/22
