@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 
 
 def get_lines(url: str) -> list[str]:
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
     response.raise_for_status()
     lines = response.text.splitlines()
 
@@ -15,7 +15,7 @@ def get_lines(url: str) -> list[str]:
 
 
 def get_opencck_lines(url: str) -> list[str]:
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
     response.raise_for_status()
     data = response.json().values()
     lines = []
@@ -42,46 +42,53 @@ def strip(line: str) -> str:
 
 
 def generate_file(name: str, lines: list[str], urls: list[str]) -> None:
-    def covered(cidr: ipaddress.IPv4Network, kept: list[ipaddress.IPv4Network]) -> bool:
+    def get_cidrs(lines: list[str]) -> list[ipaddress.IPv4Network]:
+        cidrs: list[ipaddress.IPv4Network] = []
+
+        for line in lines:
+            line = strip(line)
+
+            if is_ipv4(line):
+                cidrs.append(ipaddress.IPv4Network(line, strict=False))
+
+        if not cidrs:
+            raise ValueError("No cidrs generated")
+
+        cidrs.sort(key=lambda n: n.prefixlen)
+
+        return cidrs
+
+    def filter_cidrs(cidrs: list[ipaddress.IPv4Network]) -> list[ipaddress.IPv4Network]:
+        kept: list[ipaddress.IPv4Network] = []
+
+        for cidr in cidrs:
+            if not subnet_of(cidr, kept):
+                kept.append(cidr)
+
+        if not kept:
+            raise ValueError("No cidrs after filtered")
+
+        return kept
+
+    def subnet_of(cidr: ipaddress.IPv4Network, kept: list[ipaddress.IPv4Network]) -> bool:
         for big in kept:
             if cidr.subnet_of(big):
                 return True
 
         return False
 
-    list_name = name.upper()
     lines = list(dict.fromkeys(lines))
-    cidrs: list[ipaddress.IPv4Network] = []
-
-    for line in lines:
-        line = strip(line)
-
-        if is_ipv4(line):
-            cidrs.append(ipaddress.IPv4Network(line, strict=False))
-
-    if not cidrs:
-        raise ValueError("No cidrs generated")
-
-    cidrs.sort(key=lambda n: n.prefixlen)
-    kept: list[ipaddress.IPv4Network] = []
-
-    for cidr in cidrs:
-        if not covered(cidr, kept):
-            kept.append(cidr)
-
-    if not kept:
-        raise ValueError("No cidrs after filtered")
-
-    cidr_list: str = ""
-
-    for address in kept:
-        cidr_list += f"add list={list_name}-CIDR comment={list_name}-CIDR address={str(address)}\n"
-
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    result = f"# Generated at: {now}\n"
+    result: str = f"# Generated at: {now}\n"
 
     for url in urls:
         result += f"# Original file: {url}\n"
+
+    list_name = name.upper()
+    cidr_list: str = ""
+
+    for cidr in filter_cidrs(get_cidrs(lines)):
+        cidr_list += f"add list={list_name}-CIDR comment={list_name}-CIDR address={str(cidr)}\n"
 
     result += "/ip firewall address-list\n" + cidr_list
 
