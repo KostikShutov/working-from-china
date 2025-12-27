@@ -1,4 +1,4 @@
-# Generated at: 2025-12-26 01:57:41 UTC
+# Generated at: 2025-12-27 01:55:31 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.160.150.0/24
@@ -25,6 +25,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.171.117.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.171.171.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.173.238.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.174.113.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.174.230.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.32.179.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.32.230.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.33.67.0/24
@@ -33,6 +34,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.33.252.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.225.47.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.227.74.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.227.87.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.227.146.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.227.219.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.227.246.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.248.188.0/24
@@ -54,6 +56,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.176.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.243.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.239.18.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.239.36.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.244.146.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.244.202.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.244.214.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.245.46.0/24
@@ -87,6 +90,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.84.132.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.84.203.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.128.51.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.26.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.51.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.64.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.106.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.128.0/24
