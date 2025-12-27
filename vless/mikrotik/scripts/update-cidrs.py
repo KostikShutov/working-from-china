@@ -1,19 +1,13 @@
 import re
-from helper import get_lines, is_ipv4, strip, generate_file
-
-TELEGRAM_URL = "https://core.telegram.org/resources/cidr.txt"
-WHATSAPP_URL = "https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt"
-META_URL = "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst"
-YOUTUBE_URL = "https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/cidr4.txt"
-OTHERS_URL = "https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt"
-JETBRAINS_URL = "https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt"
-OUTPUT_DIR = "vless/mikrotik/"
-CHATGPT = "chatgpt"
-META = "meta"
-TWITTER = "twitter"
-MEDIUM = "medium_com"
-YOUTUBE = "youtube"
-WHITE_LIST = [CHATGPT, META, TWITTER, MEDIUM, YOUTUBE]
+from helper import get_lines, get_opencck_lines, is_ipv4, strip
+from config import ConfigUrls, ConfigNames
+from chatgpt import generate_chatgpt_file
+from jetbrains import merge_jetbrains_files, generate_jetbrains_file
+from medium import generate_medium_file
+from meta import merge_meta_files, generate_meta_file
+from telegram import generate_telegram_file
+from twitter import merge_twitter_files, generate_twitter_file
+from youtube import merge_youtube_files, generate_youtube_file
 
 
 def clean_text(text: str) -> str:
@@ -57,69 +51,27 @@ def prepare_services(lines: list[str]) -> dict[str, list[str]]:
     return services
 
 
-def merge_meta_files(meta: list[str]) -> list[str]:
-    lines = get_lines(WHATSAPP_URL)
-
-    for line in lines:
-        meta.append(strip(line))
-
-    lines = get_lines(META_URL)
-
-    for line in lines:
-        meta.append(strip(line))
-
-    return meta
-
-
-def merge_youtube_files(youtube: list[str]) -> list[str]:
-    lines = get_lines(YOUTUBE_URL)
-
-    for line in lines:
-        youtube.append(strip(line))
-
-    return youtube
-
-
 def main():
-    lines = get_lines(OTHERS_URL)
+    lines = get_lines(ConfigUrls.OTHERS_URL)
     lines = filter_lines(lines)
     services: dict[str, list[str]] = prepare_services(lines)
-    services[META] = merge_meta_files(services[META])
-    services[YOUTUBE] = merge_youtube_files(services[YOUTUBE])
+    services[ConfigNames.META] = merge_meta_files(services[ConfigNames.META])
+    services[ConfigNames.TWITTER] = merge_twitter_files(services[ConfigNames.TWITTER])
+    services[ConfigNames.YOUTUBE] = merge_youtube_files(services[ConfigNames.YOUTUBE])
+    services[ConfigNames.JETBRAINS] = merge_jetbrains_files(get_opencck_lines(ConfigUrls.JETBRAINS_URL_OPEN))
+    services[ConfigNames.TELEGRAM] = get_lines(ConfigUrls.TELEGRAM_URL)
 
-    for white_service in WHITE_LIST:
+    for white_service in ConfigNames.WHITE_LIST:
         if white_service not in services:
             raise ValueError(f"Service {white_service} not found in white list")
 
-        lines = services[white_service]
-
-        if white_service == META:
-            urls = [OTHERS_URL, WHATSAPP_URL, META_URL]
-        elif white_service == YOUTUBE:
-            urls = [OTHERS_URL, YOUTUBE_URL]
-        else:
-            urls = [OTHERS_URL]
-
-        generate_file(
-            lines=lines,
-            list_name=white_service.upper(),
-            urls=urls,
-            output_file=OUTPUT_DIR + white_service + "_cidr_ipv4.rsc",
-        )
-
-    generate_file(
-        lines=get_lines(TELEGRAM_URL),
-        list_name="TELEGRAM",
-        urls=[TELEGRAM_URL],
-        output_file=OUTPUT_DIR + "telegram_cidr_ipv4.rsc",
-    )
-
-    generate_file(
-        lines=get_lines(JETBRAINS_URL),
-        list_name="JETBRAINS",
-        urls=[JETBRAINS_URL],
-        output_file=OUTPUT_DIR + "jetbrains_cidr_ipv4.rsc",
-    )
+    generate_chatgpt_file(services[ConfigNames.CHATGPT])
+    generate_jetbrains_file(services[ConfigNames.JETBRAINS])
+    generate_medium_file(services[ConfigNames.MEDIUM])
+    generate_meta_file(services[ConfigNames.META])
+    generate_telegram_file(services[ConfigNames.TELEGRAM])
+    generate_twitter_file(services[ConfigNames.TWITTER])
+    generate_youtube_file(services[ConfigNames.YOUTUBE])
 
 
 if __name__ == "__main__":

@@ -14,6 +14,22 @@ def get_lines(url: str) -> list[str]:
     return lines
 
 
+def get_opencck_lines(url: str) -> list[str]:
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json().values()
+    lines = []
+
+    for cidr_list in data:
+        for cidr in cidr_list:
+            lines.append(strip(cidr))
+
+    if not lines:
+        raise ValueError(f"No lines received from url {url}")
+
+    return lines
+
+
 def is_ipv4(ip: str) -> bool:
     try:
         return isinstance(ipaddress.ip_network(ip), ipaddress.IPv4Network)
@@ -25,7 +41,8 @@ def strip(line: str) -> str:
     return line.strip(' ,#/_')
 
 
-def generate_file(lines: list[str], list_name: str, urls: list[str], output_file: str) -> None:
+def generate_file(name: str, lines: list[str], urls: list[str]) -> None:
+    list_name = name.upper()
     lines = list(dict.fromkeys(lines))
     cidrs = ""
 
@@ -46,5 +63,5 @@ def generate_file(lines: list[str], list_name: str, urls: list[str], output_file
 
     result += "/ip firewall address-list\n" + cidrs
 
-    with open(output_file, "w", encoding="utf-8") as f:
+    with open("vless/mikrotik/" + name + "_cidr_ipv4.rsc", "w", encoding="utf-8") as f:
         f.write(result)
