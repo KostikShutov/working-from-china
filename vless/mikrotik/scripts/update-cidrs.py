@@ -57,6 +57,7 @@ def main():
     services: dict[str, list[str]] = prepare_services(lines)
     services[ConfigNames.CHATGPT] = merge_chatgpt_files(services[ConfigNames.CHATGPT])
     services[ConfigNames.META] = merge_meta_files(services[ConfigNames.META])
+    services[ConfigNames.MEDIUM] = merge_chatgpt_files(services[ConfigNames.MEDIUM])
     services[ConfigNames.TWITTER] = merge_twitter_files(services[ConfigNames.TWITTER])
     services[ConfigNames.YOUTUBE] = merge_youtube_files(services[ConfigNames.YOUTUBE])
     services[ConfigNames.JETBRAINS] = merge_jetbrains_files(get_opencck_lines(ConfigUrls.JETBRAINS_URL_OPEN))
