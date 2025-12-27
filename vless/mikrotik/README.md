@@ -168,4 +168,19 @@ Mangle правила:
 /ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_medium_com new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=MEDIUM_COM-CIDR
 ```
 
+### Linkedin
+
+```routeros
+/tool fetch url="https://raw.githubusercontent.com/KostikShutov/working-from-china/refs/heads/main/vless/mikrotik/linkedin_cidr_ipv4.rsc" mode=https dst-path=linkedin_cidr_ipv4.rsc
+/ip firewall address-list remove [find list=LINKEDIN-CIDR]
+/import file-name=linkedin_cidr_ipv4.rsc
+```
+
+Mangle правила:
+
+```routeros
+/ip firewall mangle add action=mark-connection chain=prerouting connection-mark=no-mark connection-state=new dst-address-list=LINKEDIN-CIDR new-connection-mark=to_vpn_conn_linkedin passthrough=yes in-interface-list=LAN comment=LINKEDIN-CIDR
+/ip firewall mangle add action=mark-routing chain=prerouting connection-mark=to_vpn_conn_linkedin new-routing-mark=to_vpn_mark passthrough=yes in-interface-list=LAN comment=LINKEDIN-CIDR
+```
+
 Запускаем каждый скрипт и создаем mangle правила по каждому сервису.
