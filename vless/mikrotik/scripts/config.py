@@ -9,6 +9,8 @@ class ConfigUrls:
     JETBRAINS_URL_OPEN = "https://iplist.opencck.org/?format=json&data=cidr4&site=jetbrains.com&site=jetbrains%40cdn&site=jetbrains%40grazie.ai"
     JETBRAINS_URL_OWN = "https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt"
     TWITTER_URL_OPEN = "https://iplist.opencck.org/?format=json&data=cidr4&site=x.com"
+    CHATGPT_URL_OPEN = "https://iplist.opencck.org/?format=json&data=cidr4&site=chatgpt.com"
+
 
 class ConfigNames:
     CHATGPT = "chatgpt"

@@ -1,7 +1,7 @@
 import re
 from helper import get_lines, get_opencck_lines, is_ipv4, strip
 from config import ConfigUrls, ConfigNames
-from chatgpt import generate_chatgpt_file
+from chatgpt import merge_chatgpt_files, generate_chatgpt_file
 from jetbrains import merge_jetbrains_files, generate_jetbrains_file
 from medium import generate_medium_file
 from meta import merge_meta_files, generate_meta_file
@@ -55,6 +55,7 @@ def main():
     lines = get_lines(ConfigUrls.OTHERS_URL)
     lines = filter_lines(lines)
     services: dict[str, list[str]] = prepare_services(lines)
+    services[ConfigNames.CHATGPT] = merge_chatgpt_files(services[ConfigNames.CHATGPT])
     services[ConfigNames.META] = merge_meta_files(services[ConfigNames.META])
     services[ConfigNames.TWITTER] = merge_twitter_files(services[ConfigNames.TWITTER])
     services[ConfigNames.YOUTUBE] = merge_youtube_files(services[ConfigNames.YOUTUBE])
