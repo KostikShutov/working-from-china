@@ -13,5 +13,5 @@ def generate_chatgpt_file(lines: list[str]) -> None:
     generate_file(
         name=ConfigNames.CHATGPT,
         lines=lines,
-        urls=[ConfigUrls.OTHERS_URL],
+        urls=[ConfigUrls.OTHERS_URL, ConfigUrls.CHATGPT_URL_OPEN],
     )

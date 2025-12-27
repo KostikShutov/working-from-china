@@ -13,5 +13,5 @@ def generate_medium_file(lines: list[str]) -> None:
     generate_file(
         name=ConfigNames.MEDIUM,
         lines=lines,
-        urls=[ConfigUrls.OTHERS_URL],
+        urls=[ConfigUrls.OTHERS_URL, ConfigUrls.MEDIUM_URL_OPEN],
     )
