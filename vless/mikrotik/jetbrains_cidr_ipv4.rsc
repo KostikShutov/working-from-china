@@ -1,4 +1,4 @@
-# Generated at: 2025-12-27 16:22:38 UTC
+# Generated at: 2025-12-27 16:37:19 UTC
 # Original file: https://iplist.opencck.org/?format=json&data=cidr4&site=jetbrains.com&site=jetbrains%40cdn&site=jetbrains%40grazie.ai
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
