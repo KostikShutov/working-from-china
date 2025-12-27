@@ -1,9 +1,9 @@
-from helper import get_opencck_lines, strip, generate_file
+from helper import get_lines, strip, generate_file
 from config import ConfigUrls, ConfigNames
 
 
 def merge_twitter_files(twitter: list[str]) -> list[str]:
-    for line in get_opencck_lines(ConfigUrls.TWITTER_URL_OPEN):
+    for line in get_lines(ConfigUrls.TWITTER_URL_OPEN):
         twitter.append(strip(line))
 
     return twitter

@@ -1,5 +1,5 @@
 import re
-from helper import get_lines, get_opencck_lines, is_ipv4, strip
+from helper import get_lines, is_ipv4, strip
 from config import ConfigUrls, ConfigNames
 from chatgpt import merge_chatgpt_files, generate_chatgpt_file
 from jetbrains import merge_jetbrains_files, generate_jetbrains_file
@@ -60,7 +60,7 @@ def main():
     services[ConfigNames.MEDIUM] = merge_medium_files(services[ConfigNames.MEDIUM])
     services[ConfigNames.TWITTER] = merge_twitter_files(services[ConfigNames.TWITTER])
     services[ConfigNames.YOUTUBE] = merge_youtube_files(services[ConfigNames.YOUTUBE])
-    services[ConfigNames.JETBRAINS] = merge_jetbrains_files(get_opencck_lines(ConfigUrls.JETBRAINS_URL_OPEN))
+    services[ConfigNames.JETBRAINS] = merge_jetbrains_files(get_lines(ConfigUrls.JETBRAINS_URL_OPEN))
     services[ConfigNames.TELEGRAM] = get_lines(ConfigUrls.TELEGRAM_URL)
 
     for white_service in ConfigNames.WHITE_LIST:

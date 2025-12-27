@@ -1,4 +1,4 @@
-from helper import get_lines, get_opencck_lines, strip, generate_file
+from helper import get_lines, strip, generate_file
 from config import ConfigUrls, ConfigNames
 
 
@@ -6,7 +6,7 @@ def merge_youtube_files(youtube: list[str]) -> list[str]:
     for line in get_lines(ConfigUrls.YOUTUBE_URL):
         youtube.append(strip(line))
 
-    for line in get_opencck_lines(ConfigUrls.YOUTUBE_URL_OPEN):
+    for line in get_lines(ConfigUrls.YOUTUBE_URL_OPEN):
         youtube.append(strip(line))
 
     return youtube

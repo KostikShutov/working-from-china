@@ -1,9 +1,9 @@
-from helper import get_opencck_lines, strip, generate_file
+from helper import get_lines, strip, generate_file
 from config import ConfigUrls, ConfigNames
 
 
 def merge_medium_files(medium: list[str]) -> list[str]:
-    for line in get_opencck_lines(ConfigUrls.MEDIUM_URL_OPEN):
+    for line in get_lines(ConfigUrls.MEDIUM_URL_OPEN):
         medium.append(strip(line))
 
     return medium

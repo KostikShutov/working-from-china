@@ -14,22 +14,6 @@ def get_lines(url: str) -> list[str]:
     return lines
 
 
-def get_opencck_lines(url: str) -> list[str]:
-    response = requests.get(url, timeout=10)
-    response.raise_for_status()
-    data = response.json().values()
-    lines = []
-
-    for cidr_list in data:
-        for cidr in cidr_list:
-            lines.append(strip(cidr))
-
-    if not lines:
-        raise ValueError(f"No lines received from url {url}")
-
-    return lines
-
-
 def is_ipv4(ip: str) -> bool:
     try:
         return isinstance(ipaddress.ip_network(ip, strict=False), ipaddress.IPv4Network)
