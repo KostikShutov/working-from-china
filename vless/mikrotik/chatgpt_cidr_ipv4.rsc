@@ -1,5 +1,6 @@
-# Generated at: 2025-12-27 16:37:19 UTC
+# Generated at: 2025-12-27 16:42:55 UTC
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
+# Original file: https://iplist.opencck.org/?format=json&data=cidr4&site=chatgpt.com
 /ip firewall address-list
 add list=CHATGPT-CIDR comment=CHATGPT-CIDR address=3.128.0.0/9
 add list=CHATGPT-CIDR comment=CHATGPT-CIDR address=18.128.0.0/9
