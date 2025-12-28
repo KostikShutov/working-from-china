@@ -1,21 +1,13 @@
-# Generated at: 2025-12-28 06:43:45 UTC
-# Original file: https://iplist.opencck.org/?format=text&data=cidr4&site=x.com
+# Generated at: 2025-12-28 09:26:17 UTC
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
 /ip firewall address-list
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=34.64.0.0/10
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=104.16.0.0/12
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=152.192.0.0/13
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=172.64.0.0/13
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=162.158.0.0/15
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=199.232.0.0/16
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=146.75.0.0/16
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=151.101.0.0/16
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=192.229.128.0/17
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=209.237.192.0/19
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=69.195.160.0/19
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=68.232.32.0/20
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=104.244.40.0/21
-add list=TWITTER-CIDR comment=TWITTER-CIDR address=93.184.220.0/22
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=172.66.0.0/24
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=54.240.186.247/32
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=54.192.98.249/32
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=65.9.48.253/32
@@ -33,3 +25,9 @@ add list=TWITTER-CIDR comment=TWITTER-CIDR address=99.86.92.242/32
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=13.225.33.247/32
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=13.249.5.250/32
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=143.204.221.250/32
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=152.199.21.141/32
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=93.184.220.70/32
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=192.229.233.50/32
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=104.18.37.127/32
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=172.64.150.129/32
+add list=TWITTER-CIDR comment=TWITTER-CIDR address=192.229.220.133/32
