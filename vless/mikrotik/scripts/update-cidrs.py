@@ -52,31 +52,31 @@ def main():
 
     generate_service_file(
         name=ConfigNames.CHATGPT,
-        urls=[ConfigUrls.CHATGPT_URL_OPEN],
+        urls=[],
         others=others[ConfigNames.CHATGPT],
     )
 
     generate_service_file(
         name=ConfigNames.JETBRAINS,
-        urls=[ConfigUrls.JETBRAINS_URL_OPEN, ConfigUrls.JETBRAINS_URL_OWN],
+        urls=[ConfigUrls.JETBRAINS_URL_OWN],
         others=[],
     )
 
     generate_service_file(
         name=ConfigNames.LINKEDIN,
-        urls=[ConfigUrls.LINKEDIN_URL_OPEN],
+        urls=[],
         others=others[ConfigNames.LINKEDIN],
     )
 
     generate_service_file(
         name=ConfigNames.MEDIUM,
-        urls=[ConfigUrls.MEDIUM_URL_OPEN],
+        urls=[],
         others=others[ConfigNames.MEDIUM],
     )
 
     generate_service_file(
         name=ConfigNames.META,
-        urls=[ConfigUrls.WHATSAPP_URL, ConfigUrls.META_URL, ConfigUrls.META_URL_OPEN],
+        urls=[ConfigUrls.WHATSAPP_URL, ConfigUrls.META_URL],
         others=others[ConfigNames.META],
     )
 
@@ -88,13 +88,13 @@ def main():
 
     generate_service_file(
         name=ConfigNames.TWITTER,
-        urls=[ConfigUrls.TWITTER_URL_OPEN],
+        urls=[],
         others=others[ConfigNames.TWITTER],
     )
 
     generate_service_file(
         name=ConfigNames.YOUTUBE,
-        urls=[ConfigUrls.YOUTUBE_URL, ConfigUrls.YOUTUBE_URL_OPEN],
+        urls=[ConfigUrls.YOUTUBE_URL],
         others=others[ConfigNames.YOUTUBE],
     )
 
