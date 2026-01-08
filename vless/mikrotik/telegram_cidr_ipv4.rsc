@@ -1,4 +1,4 @@
-# Generated at: 2026-01-07 02:00:37 UTC
+# Generated at: 2026-01-08 02:00:53 UTC
 # Original file: https://core.telegram.org/resources/cidr.txt
 /ip firewall address-list
 add list=TELEGRAM-CIDR comment=TELEGRAM-CIDR address=149.154.160.0/20
