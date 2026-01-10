@@ -1,4 +1,4 @@
-# Generated at: 2026-01-09 02:02:09 UTC
+# Generated at: 2026-01-10 01:57:58 UTC
 # Original file: https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/cidr4.txt
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
 /ip firewall address-list
@@ -444,6 +444,7 @@ add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.197.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.203.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.204.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.208.0/24
+add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.211.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.212.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.217.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.221.0/24
