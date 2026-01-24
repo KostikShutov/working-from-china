@@ -49,48 +49,48 @@
         },
         "inbounds": [
             {
-            "port": 443,
-            "protocol": "vless",
-            "tag": "vless_tls",
-            "settings": {
-                "clients": [
-                {
-                    "id": "сюда вставить ID из выхлопа ./usr/local/bin/xray uuid",
-                    "email": "user@server",
-                    "flow": "xtls-rprx-vision"
+                "port": 443,
+                "protocol": "vless",
+                "tag": "vless_tls",
+                "settings": {
+                    "clients": [
+                        {
+                            "id": "сюда вставить ID из выхлопа ./usr/local/bin/xray uuid",
+                            "email": "user@server",
+                            "flow": "xtls-rprx-vision"
+                        }
+                    ],
+                    "decryption": "none"
+                },
+                "streamSettings": {
+                    "network": "tcp",
+                    "security": "reality",
+                    "realitySettings": {
+                        "show": false,
+                        "dest": "www.microsoft.com:443",
+                        "xver": 0,
+                        "serverNames": ["www.microsoft.com"],
+                        "privateKey": "сюда вставить приватный ключ из выхлопа ./usr/local/bin/xray x25519",
+                        "minClientVer": "",
+                        "maxClientVer": "",
+                        "maxTimeDiff": 0,
+                        "shortIds": ["сюда вставить выхлоп команды openssl rand -hex 8"]
+                    }
+                },
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": ["http", "tls"]
                 }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "tcp",
-                "security": "reality",
-                "realitySettings": {
-                "show": false,
-                "dest": "www.microsoft.com:443",
-                "xver": 0,
-                "serverNames": ["www.microsoft.com"],
-                "privateKey": "сюда вставить приватный ключ из выхлопа ./usr/local/bin/xray x25519",
-                "minClientVer": "",
-                "maxClientVer": "",
-                "maxTimeDiff": 0,
-                "shortIds": ["сюда вставить выхлоп команды openssl rand -hex 8"]
-                }
-            },
-            "sniffing": {
-                "enabled": true,
-                "destOverride": ["http", "tls"]
-            }
             }
         ],
         "outbounds": [
             {
-            "protocol": "freedom",
-            "tag": "direct"
+                "protocol": "freedom",
+                "tag": "direct"
             },
             {
-            "protocol": "blackhole",
-            "tag": "block"
+                "protocol": "blackhole",
+                "tag": "block"
             }
         ]
     }
