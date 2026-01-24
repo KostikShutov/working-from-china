@@ -67,9 +67,9 @@
                     "security": "reality",
                     "realitySettings": {
                         "show": false,
-                        "dest": "www.microsoft.com:443",
+                        "dest": "ya.ru:443",
                         "xver": 0,
-                        "serverNames": ["www.microsoft.com"],
+                        "serverNames": ["ya.ru"],
                         "privateKey": "сюда вставить приватный ключ из выхлопа ./usr/local/bin/xray x25519",
                         "minClientVer": "",
                         "maxClientVer": "",
