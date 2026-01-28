@@ -1,4 +1,4 @@
-# Generated at: 2026-01-27 02:09:03 UTC
+# Generated at: 2026-01-28 02:04:52 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.160.150.0/24
@@ -6,6 +6,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.161.150.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.161.225.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.162.163.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.162.174.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.163.125.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.163.165.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.163.189.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.163.224.0/24
@@ -83,6 +84,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.240.61.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.105.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.251.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.246.255.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.249.32.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.249.102.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.249.150.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.250.227.0/24
@@ -96,6 +98,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.16.222.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.17.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.30.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.141.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.30.153.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.31.137.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.48.178.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.49.28.0/24
