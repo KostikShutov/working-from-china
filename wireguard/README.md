@@ -8,7 +8,7 @@
     sudo apt install curl
     ```
 
-2. Скачать скрипт (также есть копия скрипта в репозитории)
+2. Скачать скрипт
 
     ```bash
     curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
