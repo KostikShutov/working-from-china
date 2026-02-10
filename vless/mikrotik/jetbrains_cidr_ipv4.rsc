@@ -1,4 +1,4 @@
-# Generated at: 2026-02-09 02:36:53 UTC
+# Generated at: 2026-02-10 02:45:43 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.160.150.0/24
@@ -35,6 +35,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.255.12.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.32.179.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.32.230.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.33.67.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.33.109.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.33.235.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.33.252.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=13.35.107.0/24
@@ -58,6 +59,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.155.192.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.160.102.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.160.143.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.160.181.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.161.21.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.161.156.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.164.124.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.165.122.0/24
@@ -95,6 +97,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.254.20.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.255.106.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=36.103.232.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=45.253.131.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=46.51.147.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.16.222.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.17.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.30.0/24
