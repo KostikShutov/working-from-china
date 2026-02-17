@@ -1,4 +1,4 @@
-# Generated at: 2026-02-16 02:35:12 UTC
+# Generated at: 2026-02-17 02:31:48 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.160.150.0/24
@@ -59,6 +59,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.67.39.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.67.65.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.154.132.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.154.185.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.155.173.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.155.192.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.160.102.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.160.143.0/24
@@ -75,6 +76,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.202.51.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.202.168.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.203.43.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.4.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.109.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.176.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.192.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.238.243.0/24
@@ -147,6 +149,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.247.100.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.247.163.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.247.173.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=63.32.22.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=63.33.38.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=63.34.99.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=63.34.178.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=63.34.189.0/24
