@@ -83,7 +83,7 @@ def main():
     generate_service_file(
         name=ConfigNames.TELEGRAM,
         urls=[ConfigUrls.TELEGRAM_URL],
-        others=[]
+        others=others[ConfigNames.TELEGRAM],
     )
 
     generate_service_file(
