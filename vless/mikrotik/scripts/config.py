@@ -1,5 +1,6 @@
 class ConfigUrls:
     TELEGRAM_URL = "https://core.telegram.org/resources/cidr.txt"
+    TELEGRAM_URL_OPEN = "https://iplist.opencck.org/?format=text&data=cidr4&site=telegram.org"
     WHATSAPP_URL = "https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt"
     META_URL = "https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst"
     META_URL_OPEN = "https://iplist.opencck.org/?format=text&data=cidr4&site=messenger.com&site=whatsapp.com&site=instagram.com&site=facebook.com"
