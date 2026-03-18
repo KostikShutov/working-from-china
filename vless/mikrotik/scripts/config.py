@@ -6,7 +6,7 @@ class ConfigUrls:
     META_URL_OPEN = "https://iplist.opencck.org/?format=text&data=cidr4&site=messenger.com&site=whatsapp.com&site=instagram.com&site=facebook.com"
     YOUTUBE_URL = "https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/cidr4.txt"
     YOUTUBE_URL_OPEN = "https://iplist.opencck.org/?format=text&data=cidr4&site=youtube.com"
-    OTHERS_URL = "https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt"
+    OTHERS_URL = "https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt"
     JETBRAINS_URL_OPEN = "https://iplist.opencck.org/?format=text&data=cidr4&site=jetbrains.com&site=jetbrains%40cdn&site=jetbrains%40grazie.ai"
     JETBRAINS_URL_OWN = "https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt"
     TWITTER_URL_OPEN = "https://iplist.opencck.org/?format=text&data=cidr4&site=x.com"
