@@ -1,5 +1,5 @@
-# Generated at: 2026-03-18 02:36:34 UTC
-# Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
+# Generated at: 2026-03-18 05:29:31 UTC
+# Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt
 /ip firewall address-list
 add list=CHATGPT-CIDR comment=CHATGPT-CIDR address=162.159.140.0/24
 add list=CHATGPT-CIDR comment=CHATGPT-CIDR address=172.64.150.0/24

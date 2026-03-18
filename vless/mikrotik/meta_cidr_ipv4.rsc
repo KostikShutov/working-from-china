@@ -1,7 +1,7 @@
-# Generated at: 2026-03-18 02:36:35 UTC
+# Generated at: 2026-03-18 05:29:32 UTC
 # Original file: https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt
 # Original file: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst
-# Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/9aa7c097b0721bac547fa26eb2cbf6c58d3cf22b/gistfile2.txt
+# Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt
 /ip firewall address-list
 add list=META-CIDR comment=META-CIDR address=57.144.0.0/14
 add list=META-CIDR comment=META-CIDR address=142.250.0.0/15
