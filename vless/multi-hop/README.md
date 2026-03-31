@@ -69,17 +69,17 @@
             "tag": "to_remote",
             "settings": {
                 "vnext": [
-                {
-                    "address": "REMOTE_SERVER_IP",
-                    "port": 443,
-                    "users": [
-                        {
-                            "id": "UUID_УДАЛЕННОГО_СЕРВЕРА",
-                            "encryption": "none",
-                            "flow": "xtls-rprx-vision"
-                        }
-                    ]
-                }
+                    {
+                        "address": "REMOTE_SERVER_IP",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "UUID_УДАЛЕННОГО_СЕРВЕРА",
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision"
+                            }
+                        ]
+                    }
                 ]
             },
             "streamSettings": {
