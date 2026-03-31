@@ -1,4 +1,4 @@
-# Generated at: 2026-03-30 02:51:44 UTC
+# Generated at: 2026-03-31 02:44:43 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=3.160.150.0/24
