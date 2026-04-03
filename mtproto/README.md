@@ -1,6 +1,6 @@
 # MTProto
 
-1) Установить Docker.
+1) [Установить Docker](https://docs.docker.com/engine/install/ubuntu/).
 
 2) Запускаем [start-mtproxy.sh](./start-mtproxy.sh)
 
