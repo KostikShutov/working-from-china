@@ -1,4 +1,4 @@
-# Generated at: 2026-05-18 04:02:32 UTC
+# Generated at: 2026-05-19 03:56:10 UTC
 # Original file: https://raw.githubusercontent.com/touhidurrr/iplist-youtube/refs/heads/main/lists/cidr4.txt
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt
 /ip firewall address-list
@@ -14,6 +14,7 @@ add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=172.217.160.0/20
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=31.13.80.0/21
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=108.177.8.0/21
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.96.0/21
+add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.136.0/21
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.251.32.0/21
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.251.168.0/21
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.251.176.0/21
@@ -25,7 +26,6 @@ add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=74.125.200.0/22
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=108.177.120.0/22
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.8.0/22
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.112.0/22
-add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.136.0/22
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.148.0/22
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.251.12.0/22
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.251.40.0/22
@@ -87,7 +87,6 @@ add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.80.0/23
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.110.0/23
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.124.0/23
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.128.0/23
-add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.140.0/23
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.146.0/23
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.152.0/23
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.158.0/23
@@ -399,7 +398,6 @@ add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.123.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.126.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.130.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.134.0/24
-add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.142.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.145.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.154.0/24
 add list=YOUTUBE-CIDR comment=YOUTUBE-CIDR address=142.250.157.0/24
