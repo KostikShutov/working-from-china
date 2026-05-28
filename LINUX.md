@@ -25,6 +25,7 @@ sudo systemctl restart systemd-journald
 sudo journalctl --rotate
 sudo journalctl --vacuum-time=1s
 sudo rm -rf /var/log/journal/*
+sudo rm -rf /run/log/journal/*
 ```
 
 Проверяем:
