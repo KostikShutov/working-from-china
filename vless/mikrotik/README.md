@@ -12,6 +12,8 @@ https://github.com/jsonguard/vless-mikrotik (пункт 10 скипнуть)
 
 Еще можно настроить DOH: https://github.com/wilmeralmazan/google-doh-mikrotik/blob/main/dns-doh.rsc / https://help.mikrotik.com/docs/pages/viewpage.action?pageId=83099652.
 
+Вместо vless можно поднять amnezia: https://hub.docker.com/r/wiktorbgu/amneziawg-mikrotik
+
 ## 2. Отключаем `defconf: fasttrack` (`chain=forward`) в Ip -> Firewall -> Filter Rules.
 
 Есть мнение, что с включенным правилом медленно работает vless. Поэтому отключаем.
