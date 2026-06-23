@@ -1,4 +1,4 @@
-# Generated at: 2026-06-22 04:49:55 UTC
+# Generated at: 2026-06-23 03:54:07 UTC
 # Original file: https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/refs/heads/main/WhatsApp/whatsapp_cidr_ipv4.txt
 # Original file: https://raw.githubusercontent.com/itdoginfo/allow-domains/refs/heads/main/Subnets/IPv4/meta.lst
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt
@@ -26,15 +26,23 @@ add list=META-CIDR comment=META-CIDR address=66.220.0.0/16
 add list=META-CIDR comment=META-CIDR address=45.64.0.0/16
 add list=META-CIDR comment=META-CIDR address=31.13.0.0/16
 add list=META-CIDR comment=META-CIDR address=163.77.128.0/17
-add list=META-CIDR comment=META-CIDR address=57.141.0.0/20
 add list=META-CIDR comment=META-CIDR address=204.15.20.0/22
 add list=META-CIDR comment=META-CIDR address=57.141.16.0/22
-add list=META-CIDR comment=META-CIDR address=57.141.20.0/23
+add list=META-CIDR comment=META-CIDR address=57.141.2.0/23
+add list=META-CIDR comment=META-CIDR address=57.141.4.0/23
+add list=META-CIDR comment=META-CIDR address=57.141.12.0/23
 add list=META-CIDR comment=META-CIDR address=213.102.128.0/24
 add list=META-CIDR comment=META-CIDR address=87.245.208.0/24
 add list=META-CIDR comment=META-CIDR address=173.194.10.0/24
 add list=META-CIDR comment=META-CIDR address=77.240.43.0/24
 add list=META-CIDR comment=META-CIDR address=45.130.4.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.0.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.6.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.8.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.10.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.14.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.20.0/24
+add list=META-CIDR comment=META-CIDR address=57.141.24.0/24
 add list=META-CIDR comment=META-CIDR address=164.163.191.64/26
 add list=META-CIDR comment=META-CIDR address=87.245.223.97/32
 add list=META-CIDR comment=META-CIDR address=3.33.221.48/32
