@@ -1,4 +1,4 @@
-# Generated at: 2026-07-04 03:29:47 UTC
+# Generated at: 2026-07-05 03:47:19 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.240.60.0/23
@@ -129,6 +129,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.105.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.247.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.251.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.255.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.246.142.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.246.203.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.246.255.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.249.32.0/24
@@ -214,6 +215,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.75.197.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.75.246.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.76.52.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.76.80.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.78.5.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.154.26.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.154.99.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.155.144.0/24
@@ -274,6 +276,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.128.80.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.128.132.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.128.164.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.129.36.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.132.244.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.26.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.51.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=108.138.64.0/24
