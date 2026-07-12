@@ -1,4 +1,4 @@
-# Generated at: 2026-07-11 02:53:54 UTC
+# Generated at: 2026-07-12 03:19:06 UTC
 # Original file: https://core.telegram.org/resources/cidr.txt
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt
 /ip firewall address-list
