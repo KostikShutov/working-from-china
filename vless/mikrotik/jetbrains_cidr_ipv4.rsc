@@ -1,4 +1,4 @@
-# Generated at: 2026-07-27 03:30:00 UTC
+# Generated at: 2026-07-28 02:46:34 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.240.60.0/23
@@ -231,6 +231,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.75.107.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.75.191.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.75.197.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.75.246.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.76.40.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.76.52.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.76.80.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.77.84.0/24
@@ -244,6 +245,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.170.138.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.170.164.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.171.60.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.171.212.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.171.245.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.192.117.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.194.138.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.194.174.0/24
