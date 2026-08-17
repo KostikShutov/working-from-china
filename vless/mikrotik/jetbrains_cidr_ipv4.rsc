@@ -1,4 +1,4 @@
-# Generated at: 2026-08-16 01:34:44 UTC
+# Generated at: 2026-08-17 01:25:47 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.240.60.0/23
@@ -184,6 +184,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.67.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.18.141.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.19.8.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.19.195.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.19.196.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.30.9.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.30.98.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.30.123.0/24
@@ -212,6 +213,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.84.20.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.84.127.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.84.199.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.85.47.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.85.118.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.85.151.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.85.193.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.208.64.0/24
@@ -224,6 +226,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.209.139.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.209.155.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.210.30.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.210.134.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.211.7.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.211.30.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.211.41.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=52.211.50.0/24
