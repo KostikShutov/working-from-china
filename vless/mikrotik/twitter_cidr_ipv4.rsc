@@ -1,4 +1,4 @@
-# Generated at: 2026-09-08 03:46:57 UTC
+# Generated at: 2026-09-09 03:51:29 UTC
 # Original file: https://gist.githubusercontent.com/iamwildtuna/7772b7c84a11bf6e1385f23096a73a15/raw/04e94a85613d446632f3139ac46c6017dc840149/gistfile2.txt
 /ip firewall address-list
 add list=TWITTER-CIDR comment=TWITTER-CIDR address=34.64.0.0/10
