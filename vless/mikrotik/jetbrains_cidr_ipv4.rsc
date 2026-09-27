@@ -1,4 +1,4 @@
-# Generated at: 2026-09-26 04:13:41 UTC
+# Generated at: 2026-09-27 04:29:04 UTC
 # Original file: https://raw.githubusercontent.com/KostikShutov/iplist-jetbrains/refs/heads/main/lists/cidr4.txt
 /ip firewall address-list
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.240.60.0/23
@@ -149,6 +149,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=18.245.253.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.240.250.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.102.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.105.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.184.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.247.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.251.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=34.241.255.0/24
@@ -296,6 +297,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.223.4.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.223.50.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.223.183.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.228.3.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.228.184.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.228.212.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.229.83.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=54.229.161.0/24
@@ -336,6 +338,7 @@ add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.80.27.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.80.126.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.80.253.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.80.254.0/24
+add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.84.41.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.84.105.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.84.118.0/24
 add list=JETBRAINS-CIDR comment=JETBRAINS-CIDR address=99.84.132.0/24
